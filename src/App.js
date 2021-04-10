@@ -1,27 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import { decrement, increment } from './redux/actions';
+import { getText } from './redux/actions';
 
 function App() {
-  const { number } = useSelector((state) => state);
+  const { text } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const handleIncrement = () => {
-    dispatch(increment(1));
-  };
-
-  const handleDecrement = () => {
-    dispatch(decrement(1));
+  const handleClick = async () => {
+    dispatch(getText());
   };
 
   return (
     <div className="App">
-      <p>{number}</p>
+      <p>{text}</p>
       <p>
-        <button onClick={handleIncrement}>INCREMENT</button>
-      </p>
-      <p>
-        <button onClick={handleDecrement}>DECREMENT</button>
+        <button onClick={handleClick}>GET TEXT</button>
       </p>
     </div>
   );
